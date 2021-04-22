@@ -1,6 +1,7 @@
 const personas = [
     new Persona('Juan', 'Perez'),
-    new Persona('Karla', 'Lara')
+    new Persona('Karla', 'Lara'),
+    new Persona('Maria', 'Jose')
 ];
 
 function mostrarPersonas(){
@@ -12,5 +13,19 @@ function mostrarPersonas(){
     }
 
     document.getElementById('personas').innerHTML = texto;
+}
 
+function agregarPersona(){
+    const forma = document.forms['forma'];
+    const nombre = forma['nombre'];
+    const apellido = forma['apellido'];
+
+    if(nombre.value !='' && apellido.value !=''){
+        const persona = new Persona(nombre.value, apellido.value);
+        console.log(persona);
+        personas.push(persona);
+        mostrarPersonas();
+    }else{
+        alert('No hay informacion que agregar');
+    }
 }
